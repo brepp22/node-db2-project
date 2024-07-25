@@ -50,10 +50,10 @@ const checkVinNumberUnique = async (req, res, next) => {
   // DO YOUR MAGIC
   try{
     const exists = await Cars.getByVin(req.body.vin)
-    if(exists){
-      next({status: 400 , message: `vin ${req.body.vin} already exists`})
+    if(!exists){
+            next() 
     }else{
-      next()  
+     next({status: 400 , message: `vin ${req.body.vin} already exists`})
     }
   }
   catch(err){

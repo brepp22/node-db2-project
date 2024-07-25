@@ -5,7 +5,7 @@ exports.up = async function (knex) {
     table.string('vin').notNullable().unique()
     table.string('make').notNullable()
     table.string('model').notNullable()
-    table.integer('mileage').notNullable()
+    table.integer('mileage').unsigned().notNullable()
     table.string('title')
     table.string('transmission')
   })
